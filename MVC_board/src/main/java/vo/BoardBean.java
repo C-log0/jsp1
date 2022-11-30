@@ -114,6 +114,14 @@ public class BoardBean {
 		public void setBoard_date(Timestamp board_date) {
 			this.board_date = board_date;
 		}
+		@Override
+		public String toString() {
+			return "BoardBean [board_num=" + board_num + ", board_name=" + board_name + ", board_pass=" + board_pass
+					+ ", board_subject=" + board_subject + ", board_content=" + board_content + ", board_file="
+					+ board_file + ", board_real_file=" + board_real_file + ", board_re_ref=" + board_re_ref
+					+ ", board_re_lev=" + board_re_lev + ", board_re_seq=" + board_re_seq + ", board_readcount="
+					+ board_readcount + ", board_date=" + board_date + "]";
+		}
 		
 		
 }

@@ -1,10 +1,10 @@
 package vo;
 
 
-
+//포워딩 정보(포워딩 주소와 포워딩 방식)를 관리하는 ActionForward 클래스 정의 
 public class ActionForward {
 	private String path; // 포워딩할 주소(url)
-	private boolean isRedirect; // 포워딩 방식 지정(true : redirect , false : dispatch)
+	private boolean isRedirect; // 포워딩 방식 지정(true : Redirect, false : Dispatch)
 	
 	public String getPath() {
 		return path;

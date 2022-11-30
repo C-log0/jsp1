@@ -11,7 +11,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-//데이터베이스 작업 준비 및 해제(자원반환) 작업을 공통으로 수행할 jdbcUtil 클래스 정의
 
 //데이터베이스 작업 준비 및 해제(자원반환) 작업을 공통으로 수행할 JdbcUtil 클래스 정의
 public class JdbcUtil {

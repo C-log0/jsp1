@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>MVC 게시판</title>
+<!-- 외부 CSS 가져오기 -->
+<link href="css/default.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 	#writeForm {
 		width: 500px;
@@ -39,10 +41,15 @@
 </style>
 </head>
 <body>
+	<header>
+		<!-- Login, Join 링크 표시 영역 -->
+		<jsp:include page="/inc/top.jsp"></jsp:include>
+	</header>
 	<!-- 게시판 등록 -->
 	<section id="writeForm">
 		<h1>게시판 글 등록</h1>
-		<form action="BoardWritePro.bo" name="boardForm" method="post">
+		<!--  -->
+		<form action="BoardWritePro.bo" name="boardForm" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td class="td_left"><label for="board_name">글쓴이</label></td>
@@ -67,7 +74,11 @@
 				<tr>
 					<td class="td_left"><label for="board_file">파일 첨부</label></td>
 					<!-- 파일 첨부 형식은 input 태그의 type="file" 속성 사용 -->
-					<td class="td_right"><input type="file" name="board_file" required="required" /></td>
+					<td class="td_right">
+						<input type="file" name="board_file" />
+<!-- 						<br><input type="file" name="board_file2" /> -->
+<!-- 						<br><input type="file" name="board_file3" /> -->
+						</td>
 				</tr>
 			</table>
 			<section id="commandCell">
