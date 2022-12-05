@@ -52,7 +52,7 @@ public class JdbcUtil {
 			// 5. 자동 커밋(= Auto Commit) 기능 해제(옵션)
 			//    => 기본적으로 JDBC 사용 시 Auto Commit 기능이 동작되도록 설정되어 있음
 			//       (true : Auto Commit 설정, false : Auto Commit 해제)
-//			con.setAutoCommit(false); // 자동 커밋 기능 해제
+			con.setAutoCommit(false); // 자동 커밋 기능 해제
 		} catch (NamingException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

@@ -63,7 +63,7 @@ public class BoardWriteProAction implements Action {
 //			System.out.println(multi.getOriginalFileName("board_file"));
 //			System.out.println(multi.getFilesystemName("board_file"));
 			board.setBoard_file(multi.getOriginalFileName("board_file"));
-			board.setBoard_file(multi.getFilesystemName("board_file"));
+			board.setBoard_real_file(multi.getFilesystemName("board_file"));
 //			System.out.println(board);
 			
 			// -------------------------------------------------------------------------
@@ -125,7 +125,7 @@ public class BoardWriteProAction implements Action {
 			e.printStackTrace();
 		}
 		 
-		return forward;
+		return forward; // BoardFrontController로 리턴
 	}
 
 }

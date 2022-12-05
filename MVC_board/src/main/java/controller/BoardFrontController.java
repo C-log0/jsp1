@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.BoardDetailAction;
 import action.BoardListAction;
 import action.BoardListAction_backup;
+import action.BoardModifyFormAction;
 import action.BoardWriteProAction;
 import action.BoardWriteProAction_backup;
 import vo.ActionForward;
@@ -61,11 +63,36 @@ public class BoardFrontController extends HttpServlet {
 			
 		} else if(command.equals("/BoardList.bo")) {
 			System.out.println("글목록 작업!");
+			// 글목록 비즈니스 작업 요청
 			// BoardListAction 의 execute() 메서드 호출
 			action = new BoardListAction();
 			forward = action.execute(request, response);
+			
+		} else if(command.equals("/BoardDetail.bo")) {
+			// 글 상세정보 조회 비즈니스작업 요청
+			// BoardListAction 의 execute() 메서드 호출
+			action = new BoardDetailAction();
+			forward = action.execute(request, response);
+			System.out.println(forward.getPath());
+			
+		} else if(command.equals("/BoardDeleteForm.bo")) {
+//			System.out.println("글삭제 폼!");
+			// 글 삭제 폼 요청
+			forward = new ActionForward();
+			forward.setPath("board/qna_board_delete.jsp");
+			forward.setRedirect(false); // 생략도 가능
+			
+		} else if(command.equals("/BoardDeletePro.bo")) {
+			// 글 삭제 비즈니스 작업 요청
+			// BoardDeleteProAction 의 execute() 메서드 호출
+			action = new BoardDeleteProAction();
+			forward = action.execute(request, response);
+		} else if(command.equals("/BoardModifyForm.bo")) {
+			// 글 삭제 비즈니스 작업 요청
+			// BoardDeleteProAction 의 execute() 메서드 호출
+			action = new BoardModifyFormAction();
+			forward = action.execute(request, response);
 		}
-		
 		// ----------------------------------------------------------------------
 		// ActionForward 객체 내용에 따라 각각 다른 방식의 포워딩 작업 수행(공통)
 		// 1. ActionForward 객체가 null 이 아닐 경우 판별
@@ -82,7 +109,8 @@ public class BoardFrontController extends HttpServlet {
 			}
 		}
 		
-	} // doProcess() 메서드 끝(응답 데이터 전송)
+		System.out.println("doProcess() 메서드 끝");
+	} // doProcess() 메서드 끝(응답데이터 전송)
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);

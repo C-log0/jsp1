@@ -30,7 +30,10 @@
 	<!-- 게시판 글 삭제 -->
 	<h2>게시판 글 삭제</h2>
 	<section id="passForm">
-		<form action="" name="deleteForm" method="post">
+		<form action="BoardDeletePro.bo" name="deleteForm" method="post">
+			<!-- 입력받지 않은 글번호 hidden 속성으로 전달 -->
+			<input type="hidden" name="board_num" value="${param.board_num }">
+			<input type="hidden" name="pageNum" value="${param.pageNum }">
 			<table>
 				<tr>
 					<td><label>글 비밀번호</label></td>

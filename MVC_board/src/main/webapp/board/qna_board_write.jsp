@@ -45,10 +45,11 @@
 		<!-- Login, Join 링크 표시 영역 -->
 		<jsp:include page="/inc/top.jsp"></jsp:include>
 	</header>
+	
 	<!-- 게시판 등록 -->
 	<section id="writeForm">
 		<h1>게시판 글 등록</h1>
-		<!--  -->
+		<!-- 파일 업로드 기능 사용 위해 enctype 속성 설정 => cos.jar 라이브러리 필요 -->
 		<form action="BoardWritePro.bo" name="boardForm" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
@@ -78,7 +79,7 @@
 						<input type="file" name="board_file" />
 <!-- 						<br><input type="file" name="board_file2" /> -->
 <!-- 						<br><input type="file" name="board_file3" /> -->
-						</td>
+					</td>
 				</tr>
 			</table>
 			<section id="commandCell">
@@ -92,9 +93,4 @@
 </html>
 
 
-
-
-
-
-
-
+	
