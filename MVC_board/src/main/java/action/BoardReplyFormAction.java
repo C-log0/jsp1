@@ -7,7 +7,7 @@ import svc.BoardDetailService;
 import vo.ActionForward;
 import vo.BoardBean;
 
-public class BoardModifyFormAction implements Action {
+public class BoardReplyFormAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
@@ -28,7 +28,7 @@ public class BoardModifyFormAction implements Action {
 		
 		//
 		forward = new ActionForward();
-		forward.setPath("board/qna_board_modify.jsp");
+		forward.setPath("board/qna_board_reply.jsp");
 		forward.setRedirect(false);
 		
 		return forward;

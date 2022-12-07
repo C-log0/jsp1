@@ -1,5 +1,6 @@
-package controller;
+package action;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -8,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import svc.BoardDeleteProService;
+import svc.BoardDetailService;
 import vo.ActionForward;
+import vo.BoardBean;
 
 public class BoardDeleteProAction implements Action {
 
@@ -40,6 +43,12 @@ public class BoardDeleteProAction implements Action {
 				out.println("history.back()");
 				out.println("</script>");
 			} else { // 삭제 권한 있음
+				// BoardDetailService 객체의 getBoard() 메서드 호출하여 삭제할 파일명 조회
+				// => 파라미터 : 글번호 , 조회수 증가 여부(false-> 필요없으므로)  리턴타입 : BoardBean(board)
+				BoardDetailService service2 = new BoardDetailService();
+				BoardBean board = service2.getBoard(board_num, false);
+				// => 주의 ! 레코드 삭제 전, 정보 조회 먼저 수행해야 한다!
+				
 				// BoardDeleteProService 클래스의 removeBoard() 메서드를 호출하여 글 삭제 작업 수행
 				//  => 파라미터 : 글번호(board_num)    리턴타입 : boolean(isDeleteSuccess)
 				boolean isDeleteSuccess = service.removeBoard(board_num);
@@ -57,6 +66,20 @@ public class BoardDeleteProAction implements Action {
 					out.println("</script>");
 					
 				} else { // 삭제 성공 시
+						String uploadPath = "upload"; // 업로드 가상 디렉토리(이클립스)
+						String realPath = request.getServletContext().getRealPath(uploadPath);
+						
+						// 업로드 된 실제 파일 삭제
+						File f = new File(realPath, board.getBoard_real_file());
+						
+						// 해당 디렉토리 및 파일 존재 여부 판별
+						if(f.exists()) { // 존재할 경우
+							// File 객체의 delete() 메서드를 호출하여 해당 파일 삭제
+							f.delete();
+							
+						}
+					
+					
 					forward = new ActionForward();
 					forward.setPath("BoardList.bo?pageNum=" + request.getParameter("pageNum"));
 					forward.setRedirect(true);

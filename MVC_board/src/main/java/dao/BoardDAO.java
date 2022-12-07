@@ -331,6 +331,93 @@ public class BoardDAO {
 			return deleteCount;
 		}
 		
+		public int updateBoard(BoardBean board) {
+			int updateCount = 0;
+			
+			PreparedStatement pstmt = null;
+			
+			try {
+				// board 테이블의 제목, 내용을 변경 (이름은 고정)
+				String sql = "UPDATE board"
+									+ " SET"
+									+ "		board_subject = ?"
+									+ " 	, board_content = ?";
+				
+									// 단, 파일명(board_file)이 null이 아닐 경우에만 파일명도 수정
+									// => 즉, 파일명을 수정하는 SET절을 문장에 추가 결합
+									if(board.getBoard_file() != null) {
+										sql += ", board_file = ?, board_real_file = ?";
+									}
+				
+				sql 					+= " WHERE"
+										+ " 	board_num = ?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, board.getBoard_subject());
+				pstmt.setString(2, board.getBoard_content());
+				
+				// 단, 파일명(board_file)이 null 이 아닐 경우에만 
+				// 파일명 파라미터를 교체하는 setXXX() 메서드 호출
+				// => 또한, null 이 아닐 때는 글번호의 파라미터번호가 5번, 아니면 3번 
+				if(board.getBoard_file() != null) {
+					pstmt.setString(3, board.getBoard_file());
+					pstmt.setString(4, board.getBoard_real_file());
+					pstmt.setInt(5, board.getBoard_num());
+				} else {
+					pstmt.setInt(3, board.getBoard_num());
+				}
+				
+				updateCount = pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				// DB 자원 반환
+				JdbcUtil.close(pstmt);
+			}
+			
+			return updateCount;
+		}
+		// 답글 쓰기
+		public int insertReplyBoard(BoardBean board) {
+			System.out.println("BoardDAO - insertReplyBoard()");
+			
+			// INSERT 작업 결과를 리턴받아 저장할 변수 선언
+			int insertCount = 0;
+			
+			// 데이터베이스 작업에 필요한 변수 선언
+			PreparedStatement pstmt = null, pstmt2 = null;
+			ResultSet rs = null;
+			
+			try {
+				// 새 글 번호 계산을 위해 기존 board 테이블의 모든 번호(board_num) 중 가장 큰 번호 조회
+				// => 조회 결과 + 1 값을 새 글 번호로 지정하고, 조회 결과가 없으면 기본값 1 로 설정
+				// => MySQL 구문의 MAX() 함수 사용(SELECT MAX(컬럼명) FROM 테이블명)
+				int board_num = 1; // 새 글 번호
+				
+				String sql = "SELECT MAX(board_num) FROM board";
+				pstmt = con.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) { // 조회 결과가 있을 경우(= 기존 게시물이 하나라도 존재할 경우)
+					// (만약, 게시물이 존재하지 않을 경우 DB 에서 NULL 로 표기, rs.next() 가 false)
+					board_num = rs.getInt(1) + 1; // 기존 게시물 번호 중 가장 큰 번호(= 조회 결과) + 1
+				}
+				System.out.println("새 글 번호 : " + board_num);
+				//-----------------------------------------------
+				
+			} catch (SQLException e) {
+				System.out.println("SQL 구문 오류! - insertReplyBoard()");
+				e.printStackTrace();
+			} finally {
+				// DB 자원 반환
+				JdbcUtil.close(rs);
+				JdbcUtil.close(pstmt);
+				JdbcUtil.close(pstmt2);
+			}
+			
+				return insertCount;
+		}
+		
 		
 	}
 

@@ -10,10 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.BoardDeleteProAction;
 import action.BoardDetailAction;
 import action.BoardListAction;
 import action.BoardListAction_backup;
 import action.BoardModifyFormAction;
+import action.BoardModifyProAction;
+import action.BoardReplyFormAction;
+import action.BoardReplyProAction;
 import action.BoardWriteProAction;
 import action.BoardWriteProAction_backup;
 import vo.ActionForward;
@@ -92,7 +96,22 @@ public class BoardFrontController extends HttpServlet {
 			// BoardDeleteProAction 의 execute() 메서드 호출
 			action = new BoardModifyFormAction();
 			forward = action.execute(request, response);
-		}
+		} else if(command.equals("/BoardModifyPro.bo")) {
+			// 글 수정 비즈니스 작업 요청
+			// BoardDeleteProAction 의 execute() 메서드 호출
+			action = new BoardModifyProAction();
+			forward = action.execute(request, response);
+		} else if(command.equals("/BoardReplyForm.bo")) {
+			// 답글 작성 폼 비즈니스 작업 요청
+			// BoardReplyFormAction 의 execute() 메서드 호출
+			action = new BoardReplyFormAction();
+			forward = action.execute(request, response);
+		} else if(command.equals("/BoardReplyPro.bo")) {
+			// 답글 작성 폼 비즈니스 작업 요청
+			// BoardReplyProAction 의 execute() 메서드 호출
+			action = new BoardReplyProAction();
+			forward = action.execute(request, response);
+		} 
 		// ----------------------------------------------------------------------
 		// ActionForward 객체 내용에 따라 각각 다른 방식의 포워딩 작업 수행(공통)
 		// 1. ActionForward 객체가 null 이 아닐 경우 판별

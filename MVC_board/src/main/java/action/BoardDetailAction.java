@@ -24,9 +24,9 @@ public class BoardDetailAction implements Action {
 		// => 또한, Dispatch 방식으로 포워딩 시 URL 이 유지되므로 파라미터값 가져오기 불필요
 		
 		// BoardDetailService 인스턴스 생성 후 getBoard() 메서드 호출하여 게시물 조회 요청
-		// => 파라미터 : 글번호    리턴타입 : BoardBean(board)
+		// => 파라미터 : 글번호,  조회수 증가 여부(true)    리턴타입 : BoardBean(board)
 		BoardDetailService service = new BoardDetailService();
-		BoardBean board = service.getBoard(board_num);
+		BoardBean board = service.getBoard(board_num, true);
 //		System.out.println(board);
 		
 		// 뷰페이지로 데이터 전달을 위해 request 객체에 저장
