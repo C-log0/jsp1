@@ -29,7 +29,6 @@ public class BoardModifyProAction implements Action {
 		try {
 			
 			String uploadPath = "upload"; //업로드 가상 디렉토리(이클립스가 관리)
-			// 업로드 실제 디렉토리(톰캣) 얻어오기
 			realPath = request.getServletContext().getRealPath(uploadPath);  
 			System.out.println("실제 업로드 경로 : " + realPath);
 			// D:\Shared\JSP\workspace_jsp5\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\MVC_Board\ upload
@@ -69,7 +68,7 @@ public class BoardModifyProAction implements Action {
 //			System.out.println(board);
 			// => 만약, 수정할 파일을 선택하지 않았을 경우 파일 명은 null값이 저장됨
 			
-			
+	
 			// BoardModifyProService - isBoardWriter() 호출하여 패스워드 일치 여부 확인
 			// => 파라미터 : BoardBean 객체    리턴타입 : boolean(isBoardWriter)
 			BoardModifyProService service = new BoardModifyProService();
@@ -126,8 +125,8 @@ public class BoardModifyProAction implements Action {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-			//예외가 발생하더라도 파일 삭제는 무조건 수행하도록 finally 블록 작성
-			//1. File 객체 생성(파라미터로 디렉토리명, 파일명 전달)
+			// 예외가 발생하더라도 파일 삭제는 무조건 수행하도록 finally 블록 작성
+			// File 객체 생성(파라미터로 디렉토리명, 파일명 전달)
 			File f = new File(realPath, deleteFileName);
 			
 			// 해당 디렉토리 및 파일 존재 여부 판별

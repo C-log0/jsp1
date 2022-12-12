@@ -14,3 +14,5 @@ SHOW TABLES;
 		board_readcount INT DEFAULT 0,
 		board_date DATETIME
 	);
+	
+	

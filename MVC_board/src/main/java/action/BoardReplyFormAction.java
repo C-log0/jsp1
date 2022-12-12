@@ -23,10 +23,11 @@ public class BoardReplyFormAction implements Action {
 		BoardDetailService service = new BoardDetailService();
 		BoardBean board = service.getBoard(board_num ,false);
 		
-		//
+		// 뷰페이지로 데이터 전달을 위해 request 객체에 저장
 		request.setAttribute("board", board);
 		
-		//
+		// ActionForward 객체를 통해 qna_board_reply.jsp 페이지 포워딩 설정
+		// => URL 유지 및 request 객체 유지를 위해 Dispatch 방식 포워딩
 		forward = new ActionForward();
 		forward.setPath("board/qna_board_reply.jsp");
 		forward.setRedirect(false);
