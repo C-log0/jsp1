@@ -16,3 +16,12 @@ article h1, h3 {
 	text-align: center;
 	padding-left: 10px;
 }
+
+table{
+	margin: auto;
+}
+
+html{
+	background-color: #FFFACD;
+}
+

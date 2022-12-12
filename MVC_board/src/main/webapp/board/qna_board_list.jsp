@@ -22,12 +22,14 @@
 	}
 	
 	table {
+		border:0.5px;
 		margin: auto;
 		width: 1024px;
+		background-color: white;
 	}
 	
 	#tr_top {
-		background: orange;
+		background: #FAF082;
 		text-align: center;
 	}
 	

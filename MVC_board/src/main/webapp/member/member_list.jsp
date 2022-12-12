@@ -22,7 +22,7 @@ if(sId == null || !sId.equals("admin")) {
 <link href="css/default.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 	#listForm {
-		width: 1024px;
+		width: 900px;
 		max-height: 610px;
 		margin: auto;
 	}
@@ -33,7 +33,7 @@ if(sId == null || !sId.equals("admin")) {
 	
 	table {
 		margin: auto;
-		width: 1024px;
+		width: 900px;
 	}
 	
 	#tr_top {
@@ -53,19 +53,19 @@ if(sId == null || !sId.equals("admin")) {
 	
 	#pageList {
 		margin: auto;
-		width: 1024px;
+		width: 900px;
 		text-align: center;
 	}
 	
 	#emptyArea {
 		margin: auto;
-		width: 1024px;
+		width: 900px;
 		text-align: center;
 	}
 	
 	#buttonArea {
 		margin: auto;
-		width: 1024px;
+		width: 900x;
 		text-align: right;
 		margin-top: 10px;
 	}
@@ -90,7 +90,7 @@ if(sId == null || !sId.equals("admin")) {
 			<th width="200">E-Mail</th>
 			<th width="30">성별</th>
 			<th width="100">가입일</th>
-<!-- 			<th width="150"></th> -->
+			<th width="100"></th>
 		</tr>
 	<!-- member 테이블의 모든 레코드 조회하여 테이블에 출력 -->
 	<!-- 이름, 아이디, 이메일, 성별, 가입일 출력 -->
@@ -101,6 +101,12 @@ if(sId == null || !sId.equals("admin")) {
 			<td width="100">${member.email }</td>
 			<td width="30">${member.gender }</td>
 			<td><fmt:formatDate value="${member.date }" pattern="yy-MM-dd"/></td>
+			
+			<td>
+				<input type="button" value="수정" onclick="location.href='MemberUpdate.me?id=${member.id}'">
+				<input type="button" value="삭제" onclick="location.href='MemberDelete.me?id=${member.id}'">
+			</td>
+		
 		</tr>
 		</c:forEach>
 	</table>

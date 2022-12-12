@@ -6,6 +6,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- 외부 CSS 가져오기 -->
+<link href="css/default.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+h1 {
+	text-align: center;
+}
+table{
+	background-color: white;
+}
+th{
+	background-color: #d6e0ed;
+}
+
+</style>
 </head>
 <body>
 	<header>
@@ -16,18 +30,18 @@
 	<form action="MemberJoinPro.me" method="post" name="joinForm">
 		<table border="1">
 			<tr>
-				<td>이름</td>
+				<th>이름</th>
 				<td><input type="text" name="name" id="name" required="required" size="20"></td>
 			</tr>
 			<tr>
-				<td>성별</td>
+				<th>성별</th>
 				<td>
 					<input type="radio" name="gender" value="남">남&nbsp;&nbsp;
 					<input type="radio" name="gender" value="여" checked="checked">여
 				</td>
 			</tr>
 			<tr>
-				<td>E-Mail</td>
+				<th>E-Mail</th>
 				<td>
 					<input type="text" name="email1" required="required" size="10">@
 					<input type="text" name="email2" required="required" size="10">
@@ -39,16 +53,16 @@
 				</td>
 			</tr>
 			<tr>
-				<td>아이디</td>
+				<th>아이디</th>
 				<td>
-					<input type="text" name="id" id="id"required="required" size="20" placeholder="4-16자리 영문자,숫자 조합">
+					<input type="text" name="id" id="id"required="required" size="30" placeholder="4-16자리 영문자,숫자 조합">
 					<span id="checkIdResult"><!-- 자바스크립트에 의해 메세지가 표시될 공간 --></span>
 				</td>
 			</tr>
 			<tr>
-				<td>패스워드</td>
+				<th>패스워드</th>
 				<td>
-					<input type="password" name="passwd" id="passwd" required="required" size="20" placeholder="8-20자리 영문자,숫자,특수문자 조합">
+					<input type="password" name="passwd" id="passwd" required="required" size="30" placeholder="8-20자리 영문자,숫자,특수문자 조합">
 					<span id="checkPasswdResult"><!-- 자바스크립트에 의해 메세지가 표시될 공간 --></span>
 				</td>
 			</tr>

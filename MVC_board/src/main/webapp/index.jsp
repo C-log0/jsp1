@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 <!-- 외부 CSS 가져오기 -->
 <link href="css/default.css" rel="stylesheet" type="text/css">
+<style>
+	img { display: block; margin: 0px auto; }
+</style>
 </head>
 <body>
 	<header>
@@ -16,9 +19,11 @@
 	
 	<article>
 		<!-- 본문 표시 영역 -->
-		<h1>MVC 게시판</h1>
+		<h1> (☞ﾟヮﾟ)☞ <b>MVC 게시판</b> ☜(ﾟヮﾟ☜) </h1>
 		<h3><a href="BoardWriteForm.bo">글쓰기</a></h3>
 		<h3><a href="BoardList.bo">글목록</a></h3>
 	</article>
+	
+	<img src="images/IMG_4943.jpeg" alt="" width="300px" height="300px">
 </body>
 </html>

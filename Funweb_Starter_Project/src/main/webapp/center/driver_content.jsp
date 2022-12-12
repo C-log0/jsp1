@@ -8,6 +8,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
+
 // 글번호, 페이지번호 파라미터 가져오기
 // => 단, 페이지번호는 다음 페이지로 전달하는 용도로만 사용하므로 String 타입 사용도 가능
 int idx = Integer.parseInt(request.getParameter("idx"));
@@ -37,6 +38,7 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // ex) 2022-
 String board_type = "driver";
 
 %>	
+
 <!DOCTYPE html>
 <html>
 <head>

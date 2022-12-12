@@ -41,6 +41,7 @@ public class MemberJoinProService {
 					
 					// 작업 처리 결과를 성공으로 표시하여 리턴하기 위해 isWriteSuccess 를 true 로 변경
 					isJoinSuccess = true;
+					
 				} else {
 					JdbcUtil.rollback(con);
 				}

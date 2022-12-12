@@ -123,7 +123,7 @@ public class BoardReplyProAction implements Action {
 			e.printStackTrace();
 		}
 		 
-		return null;
+		return forward;
 	}
 
 }

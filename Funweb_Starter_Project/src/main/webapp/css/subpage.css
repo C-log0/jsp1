@@ -306,4 +306,26 @@ figcaption{
 	color: #39F;
 }
 
+/* ----------freeboard----------------- */
+article table#free_content {
+	width: 670px;
+	border-collapse: collapse; 
+}
+article table#free_content td {
+	text-align: center;
+	padding: 6px 0;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #999;
+}
+article table#free_content td.left{
+	text-align: left;
+}
 
+article table#free_content td textarea {
+	width: 100%;
+}
+
+article table#free_content .reply_btn {
+	height: 65px;
+}

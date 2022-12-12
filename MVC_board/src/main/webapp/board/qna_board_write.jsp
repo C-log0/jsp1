@@ -10,8 +10,8 @@
 <style type="text/css">
 	#writeForm {
 		width: 500px;
-		height: 450px;
-		border: 1px solid red;
+		height: 500px;
+		border: 1px solid gray;
 		margin: auto;
 	}
 	
@@ -26,13 +26,13 @@
 	
 	.td_left {
 		width: 150px;
-		background: orange;
+		background: #FAF082;
 		text-align: center;
 	}
 	
 	.td_right {
 		width: 300px;
-		background: skyblue;
+		background: #d6e0ed;
 	}
 	
 	#commandCell {

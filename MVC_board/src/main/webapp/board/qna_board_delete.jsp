@@ -10,9 +10,10 @@
 <link href="css/default.css" rel="stylesheet" type="text/css">
 <style>
 	#passForm {
-		width: 300px;
+		width: 400px;
+		height: 100px;
 		margin: auto;
-		border: 1px solid orange;
+		border: 1px solid grey;
 		text-align: center;
 	}
 	
@@ -21,7 +22,7 @@
 	}
 	
 	table {
-		width: 300px;
+		width: 400px;
 		margin: auto;
 		text-align: center;
 	}

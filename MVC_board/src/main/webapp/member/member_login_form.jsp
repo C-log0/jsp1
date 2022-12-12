@@ -6,6 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- 외부 CSS 가져오기 -->
+<link href="css/default.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+
+h1 {
+	text-align: center;
+}
+
+</style>
 </head>
 <body>
 	<!-- 세션 아이디가 null 이 아닐 경우 메인페이지로 돌려보내기 -->
@@ -27,7 +36,7 @@
 			<tr>
 				<td colspan="2" align="center">
 					<input type="submit" value="로그인">
-					<input type="button" value="회원가입" onclick="location.href=''">
+					<input type="button" value="회원가입" onclick="location.href='MemberJoinForm.me'">
 				</td>
 			</tr>
 		</table>

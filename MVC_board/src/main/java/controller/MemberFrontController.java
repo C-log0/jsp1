@@ -19,14 +19,16 @@ import action.BoardReplyFormAction;
 import action.BoardReplyProAction;
 import action.BoardWriteProAction;
 import action.MemberJoinProAction;
+import action.MemberListAction;
 import action.MemberLoginProAction;
+import action.MemberLogoutAction;
 import vo.ActionForward;
 
 @WebServlet("*.me") // xxx.me 로 끝나는 모든 주소 매핑
 public class MemberFrontController extends HttpServlet {
 	// GET or POST 방식 요청을 공통으로 처리할 doProcess() 메서드 정의
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		System.out.println("MeberFrontController");
+//		System.out.println("MemberFrontController");
 		
 		// POST 방식 요청에 대한 한글 인코딩 처리
 		request.setCharacterEncoding("UTF-8");
@@ -45,18 +47,24 @@ public class MemberFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("member/member_join_form.jsp");
 			forward.setRedirect(false);
+			
 		} else if(command.equals("/MemberJoinPro.me")) {
 			//회원가입 비즈니스 로직 요청
 			action = new MemberJoinProAction();
 			forward = action.execute(request, response);
-		
+			
+		} else if(command.equals("/MemberJoinResult.me")) {
+			forward = new ActionForward();
+			forward.setPath("member/member_join_result.jsp");
+			forward.setRedirect(false);
+			
 		} else if(command.equals("/MemberLoginForm.me")) {
 			forward = new ActionForward();
 			forward.setPath("member/member_login_form.jsp");
 			forward.setRedirect(false);
 			
 		} else if(command.equals("/MemberLoginPro.me")) {
-			//로그인 비즈니스 로직 요청
+			// 로그인 비즈니스 로직 요청
 			action = new MemberLoginProAction();
 			forward = action.execute(request, response);
 			
@@ -64,7 +72,13 @@ public class MemberFrontController extends HttpServlet {
 			// 회원 목록 비즈니스 로직 요청
 			action = new MemberListAction();
 			forward = action.execute(request, response);
-		} 
+			
+		} else if(command.equals("/MemberLogout.me")) {
+			// 로그아웃 비즈니스 로직 요청
+			action = new MemberLogoutAction();
+			forward = action.execute(request, response);
+		}
+		
 		// ----------------------------------------------------------------------
 		// ActionForward 객체 내용에 따라 각각 다른 방식의 포워딩 작업 수행(공통)
 		// 1. ActionForward 객체가 null 이 아닐 경우 판별

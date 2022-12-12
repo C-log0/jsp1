@@ -16,3 +16,5 @@ SHOW TABLES;
 	);
 	
 	
+	SELECT * FROM board;
+	

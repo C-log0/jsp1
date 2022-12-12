@@ -27,7 +27,7 @@ dao.updateReadcount(idx);
 // FreeBoardDTO 객체의 selectFileBoard() 메서드를 호출하여 게시물 1개 조회 작업 수행
 //=> 파라미터 : 글번호(idx)   리턴타입 : FreeBoardDTO(freeboard)
 FreeBoardDTO freeboard = dao.selectFileBoard(idx);
-System.out.println(freeboard);
+// System.out.println(freeboard);
 
 // textarea 에 표시할 데이터 줄바꿈 기능 넣기
 freeboard.setContent(freeboard.getContent().replaceAll(System.getProperty("line.separator"), "<br>"));
@@ -138,7 +138,10 @@ String board_type = "free";
 					// List 객체 크기만큼 반복
 					for(BoardReplyDTO replyBoard : replyList) {
 						%>
-						<a href=""><img src="../images/center/delete.png" width="10px" height="10px"></a>
+						<a href="reply_deletePro.jsp?idx=<%=replyBoard.getIdx()%>&pageNum=<%=pageNum%>
+								&ref_idx=<%=replyBoard.getRef_idx()%>&board_type=<%=replyBoard.getBoard_type()%>">
+						<img src= "../images/center/delete.png" width="10px" height="10px"></a>
+						
 						<span id="replyContent"><%=replyBoard.getContent() %></span>
 						<span id="replyId"><%=replyBoard.getId() %></span>
 						<span id="replyDate"><%=sdf.format(replyBoard.getDate()) %></span><br>

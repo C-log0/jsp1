@@ -8,10 +8,10 @@
 <!-- 외부 CSS 가져오기 -->
 <link href="css/default.css" rel="stylesheet" type="text/css">
 <style type="text/css">
-	#modifyForm {
+#modifyForm {
 		width: 500px;
 		height: 500px;
-		border: 1px solid red;
+		border: 1px solid gray;
 		margin: auto;
 	}
 	
@@ -26,13 +26,13 @@
 	
 	.td_left {
 		width: 150px;
-		background: orange;
+		background: #FAF082;
 		text-align: center;
 	}
 	
 	.td_right {
 		width: 300px;
-		background: skyblue;
+		background: #d6e0ed;
 	}
 	
 	#commandCell {
